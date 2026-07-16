@@ -5,6 +5,7 @@ A Python-based command-line tool designed to handle and organize student records
 ## 📅 Project Version History
 - [Day 1 Code Version](https://github.com/HamzaButt22/student-management-system/blob/76c0604d6e90ad75fb57c5a54248022312f789e5/app.py) — Initial single student data model script.
 - [Day 2 Code Version](https://github.com/HamzaButt22/student-management-system/blob/56d74e21dfc9ba98a9571325261e108fffbc38f6/app.py) — Extended system handling multiple student records.
+- [Day 3 Code Version](https://github.com/HamzaButt22/student-management-system/blob/68a9b1843cb6aeeb1a76ff5c9bad365660cd42ac/app.py) — Added input validation using string methods and conditional checks.
 
 ## Day 1 Milestone
 - Set up the development environment using Anaconda and VS Code.
@@ -23,6 +24,16 @@ A Python-based command-line tool designed to handle and organize student records
 ## Features Built Day 2
 - Implemented a global list database to hold multiple records simultaneously.
 - Created an iterative display process using clean text divider boundaries.
+
+## Day 3 Milestone
+- Implemented input validation for student records using string operations and conditional checks.
+- Developed modular character and string scanning processes to catch edge-case entries.
+- Created meaningful terminal error feedback tracking to handle bad input types gracefully.
+
+## Features Built Day 3
+- Integrated strict length boundaries and alphabetical-space checks for names.
+- Configured length constraints and digits-only isolation checking for ID numbers.
+- Built comprehensive character analysis formatting to safely validate decimal float limits for GPAs.
 
 ## How to Run the Script
 1. Ensure Python or Anaconda is installed.
