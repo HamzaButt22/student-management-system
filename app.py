@@ -7,8 +7,8 @@ def Store_Records(name, student_id, gpa):
         "GPA": gpa
     }
     student_database.append(store_records)
+    print(f"✔️ Record for {name} saved successfully!")
 
-    
 def validate_Name(name):
     if name == "":
         print("Error: Name is required.")
@@ -60,19 +60,77 @@ def validate_GPA(gpa):
     return True
 
 def Display_All_Records():
-    print("\nStudent Record System!\n")
-    for student in student_database:
-        print("Name:", student["Name"])
-        print("ID:", student["ID"])
-        print("GPA:", student["GPA"])
-        print("-------------------------\n")
+    if not student_database:
+        print("\nNo student records found in the database.")
+        return
+    else:
+        print("\n=========================")
+        print("  STUDENT RECORD SYSTEM  ")
+        print("=========================")
+        for student in student_database:
+            print("Name:", student["Name"])
+            print("ID:", student["ID"])
+            print("GPA:", student["GPA"])
+            print("-------------------------")
 
-name = input("Enter student name: ")
+def Input():
+    name = input("Enter student name: ")
+    if validate_Name(name) == True:
+        student_id = input("Enter student ID: ")
+        if validate_Student_ID(student_id) == True:
+            duplicate_found = False
+            for student in student_database:
+                if student["ID"] == int(student_id):
+                    print("Error: A student with this ID already exists.")
+                    duplicate_found = True
+                    break
+            if duplicate_found:
+                return 
 
-if validate_Name(name) == True:
-    student_id = input("Enter student ID: ")
-    if validate_Student_ID(student_id) == True:    
-        gpa = input("Enter student GPA: ")
-        if validate_GPA(gpa) == True:
-            Store_Records(name, int(student_id), float(gpa))
+            gpa = input("Enter student GPA: ")
+            if validate_GPA(gpa) == True:
+                Store_Records(name, int(student_id), float(gpa))
+
+def Search_Student_Record():
+    if not student_database:
+        print("\nThe database is completely empty. Add students first.")
+        return
+
+    search_id = input("Enter student ID to search: ")
+    if validate_Student_ID(search_id) == True:
+        found = False
+        for student in student_database:
+            if student["ID"] == int(search_id):
+                print("\n🔍 Student Record Found:")
+                print("Name:", student["Name"])
+                print("ID:", student["ID"])
+                print("GPA:", student["GPA"])
+                print("-------------------------")
+                found = True
+                break
+        if not found:
+            print("No record found for Student ID:", search_id)
+
+def Menu():  
+    while True:
+        print("\nWelcome to the Student Record System!")
+        print("1. Add Student Record")
+        print("2. Display All Records")
+        print("3. Search Student Record")
+        print("4. Exit")
+        choice = input("Enter your choice (1-4): ")
+
+        if choice == "1":
+            Input()
+        elif choice == "2":
             Display_All_Records()
+        elif choice == "3":
+            Search_Student_Record()
+        elif choice == "4":
+            print("\nExiting the Student Record System. Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please enter a number between 1 and 4.")
+            continue
+
+Menu()
