@@ -85,11 +85,17 @@ def Input():
                     duplicate_found = True
                     break
             if duplicate_found:
-                return 
+                return
 
             gpa = input("Enter student GPA: ")
             if validate_GPA(gpa) == True:
-                Store_Records(name, int(student_id), float(gpa))
+                try:
+                    final_id = int(student_id)
+                    final_gpa = float(gpa)
+                    Store_Records(name, final_id, final_gpa)
+                except ValueError:
+                    print("Error: Invalid GPA format.")
+                    return
 
 def Search_Student_Record():
     if not student_database:
