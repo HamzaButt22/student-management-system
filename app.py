@@ -1,3 +1,5 @@
+import json
+
 class Student:
     student_database = []
 
@@ -163,6 +165,33 @@ def Update_Student_Record():
         if not found:
             print("No record found for Student ID:", update_id)
 
+def Save_To_JSON():
+    json_data = []
+    for student in Student.student_database:
+        record = {
+            "name": student.name,
+            "student_id": student.student_id,
+            "gpa": student.gpa
+            }
+        if hasattr(student, 'thesis_topic'):
+            record["thesis_topic"] = student.thesis_topic
+        json_data.append(record)
+    with open("students.json", "w") as file:
+        json.dump(json_data, file, indent=4)
+
+def Load_From_JSON():
+    try:
+        with open("students.json", "r") as file:
+            loaded_data = json.load(file)
+            for data in loaded_data:
+                if "thesis_topic" in data:
+                    new_student = GraduateStudent(data["name"], data["student_id"], data["gpa"], data["thesis_topic"])
+                else:
+                    new_student = Student(data["name"], data["student_id"], data["gpa"])
+                Student.student_database.append(new_student)
+    except FileNotFoundError:
+        pass
+
 def Menu():  
     while True:
         print("\nWelcome to the Student Record System!")
@@ -183,10 +212,12 @@ def Menu():
         elif choice == "4":
             Update_Student_Record()
         elif choice == "5":
+            Save_To_JSON()
             print("\nExiting the Student Record System. Goodbye!")
             break
         else:
             print("Invalid choice. Please enter a number between 1 and 5.")
             continue
 
+Load_From_JSON()
 Menu()
