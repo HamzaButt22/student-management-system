@@ -6,6 +6,11 @@ class Student:
         self.student_id = student_id
         self.gpa = gpa
 
+    def display(self):
+        print("Name:", self.name)
+        print("ID:", self.student_id)
+        print("GPA:", self.gpa)
+
     def Display_All_Records(self):
         if not Student.student_database:
             print("\nNo student records found in the database.")
@@ -15,10 +20,9 @@ class Student:
             print("  STUDENT RECORD SYSTEM  ")
             print("=========================")
             for student in Student.student_database:
-                print("Name:", student.name)
-                print("ID:", student.student_id)
-                print("GPA:", student.gpa)
-                print("-------------------------")    
+                student.display()
+                print("-------------------------")
+                    
 
     def Update_gpa(self, new_gpa):
         if validate_GPA(new_gpa) == True:
@@ -27,8 +31,22 @@ class Student:
         else:
             print("Error: Invalid GPA format. Update failed.")
 
-def Store_Records(name, student_id, gpa):
-    new_student = Student(name, student_id, gpa)
+
+class GraduateStudent(Student):
+    def __init__(self, name, student_id, gpa, thesis_topic):
+        super().__init__(name, student_id, gpa)
+        self.thesis_topic = thesis_topic
+
+    def display(self):
+        super().display()
+        print("Thesis Topic:", self.thesis_topic)
+
+
+def Store_Records(name, student_id, gpa, thesis_topic=None):
+    if thesis_topic:
+        new_student = GraduateStudent(name, student_id, gpa, thesis_topic)
+    else:
+        new_student = Student(name, student_id, gpa)
     Student.student_database.append(new_student)
     print(f"✔️ Record for {name} saved successfully!")
 
@@ -82,7 +100,7 @@ def validate_GPA(gpa):
         return False
     return True
 
-def Input():
+def Input(is_grad):
     name = input("Enter student name: ")
     if validate_Name(name) == True:
         student_id = input("Enter student ID: ")
@@ -101,7 +119,11 @@ def Input():
                 try:
                     final_id = int(student_id)
                     final_gpa = float(gpa)
-                    Store_Records(name, final_id, final_gpa)
+                    if is_grad == "y":
+                        thesis_topic = input("Enter thesis topic: ")
+                        Store_Records(name, final_id, final_gpa, thesis_topic)
+                    else:
+                        Store_Records(name, final_id, final_gpa)
                 except ValueError:
                     print("Error: Invalid GPA format.")
                     return
@@ -117,9 +139,7 @@ def Search_Student_Record():
         for student in Student.student_database:
             if student.student_id == int(search_id):
                 print("\n🔍 Student Record Found:")
-                print("Name:", student.name)
-                print("ID:", student.student_id)
-                print("GPA:", student.gpa)
+                student.display()
                 print("-------------------------")
                 found = True
                 break
@@ -154,7 +174,8 @@ def Menu():
         choice = input("Enter your choice (1-5): ")
 
         if choice == "1":
-            Input()
+            is_grad = input("Is this a Graduate Student? (y/n): ").strip().lower()
+            Input(is_grad)
         elif choice == "2":
             Student.Display_All_Records(Student)
         elif choice == "3":
