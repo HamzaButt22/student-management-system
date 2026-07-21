@@ -12,7 +12,7 @@ A Python-based command-line tool designed to handle and organize student records
 - **[Week 2]**
 - [Day 1 Code Version](https://github.com/HamzaButt22/student-management-system/blob/91cea2c4e50e5b72d527846fa2999cc80364e554/app.py) — Migrated system infrastructure to Object-Oriented Programming (OOP) using custom Student entity blueprints.
 - [Day 2 Code Version](https://github.com/HamzaButt22/student-management-system/blob/132c0cd20482ce304093d2856d41c5ce0ec2038b/app.py) — Implemented class inheritance and runtime polymorphism via specialized student child structures.
-  - [Day 3 Code Version](https://github.com/HamzaButt22/student-management-system/blob/4536bf0fe4e6c0f7332c5bd53c2115db28340c8e/app.py) — Integrated JSON serialization infrastructure to ensure database state persistence across application lifecycles.
+- [Day 3 Code Version](https://github.com/HamzaButt22/student-management-system/blob/4536bf0fe4e6c0f7332c5bd53c2115db28340c8e/app.py) — Integrated JSON serialization infrastructure to ensure database state persistence across application lifecycles.
 
 
 ## Week 1
