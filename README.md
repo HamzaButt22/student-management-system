@@ -11,6 +11,9 @@ A Python-based command-line tool designed to handle and organize student records
 - [Day 5 Code Version](https://github.com/HamzaButt22/student-management-system/blob/48a0ac8c46829f96a6b157c86a2c53be889cf75a/app.py) — Refactored application code into modular architectures and integrated standard exception handling layers.
 - **[Week 2]**
 - [Day 1 Code Version](https://github.com/HamzaButt22/student-management-system/blob/91cea2c4e50e5b72d527846fa2999cc80364e554/app.py) — Migrated system infrastructure to Object-Oriented Programming (OOP) using custom Student entity blueprints.
+- [Day 2 Code Version](https://github.com/HamzaButt22/student-management-system/blob/132c0cd20482ce304093d2856d41c5ce0ec2038b/app.py) — Implemented class inheritance and runtime polymorphism via specialized student child structures.
+  - [Day 3 Code Version](https://github.com/HamzaButt22/student-management-system/blob/4536bf0fe4e6c0f7332c5bd53c2115db28340c8e/app.py) — Integrated JSON serialization infrastructure to ensure database state persistence across application lifecycles.
+
 
 ## Week 1
 
@@ -74,6 +77,29 @@ A Python-based command-line tool designed to handle and organize student records
 - Implemented class variable list states (`Student.student_database`) to anchor data arrays.
 - Structured constructor engines (`__init__`) using implicit reference variables (`self`).
 - Developed a safe record updater module (`Update_Student_Record()`) to alter parameters dynamically using explicit verification guards.
+
+## Day 2 Milestone
+- Implemented inheritance and polymorphism by extending the Student class into a GraduateStudent subclass.
+- Designed hierarchical object structures allowing properties to flow seamlessly down to children templates.
+- Overrode core display mechanisms to apply dynamic compilation layouts based on the target class type.
+
+## Features Built Day 2
+- Structured the `GraduateStudent` subclass linked directly to the parent via Python's `super().__init__()` chain.
+- Integrated a unique `thesis_topic` string attribute specialized for postgraduate record entities.
+- Applied runtime polymorphism by overriding the instance `.display()` method across classes, removing manual formatting blocks from database lookup loops.
+- Expanded the menu-driven routing engine with conditional query gates to determine student classifications prior to memory initialization.
+
+## Day 3 Milestone
+- Integrated JSON-based file persistence so student records are saved and reloaded correctly.
+- Engineered automated serialization and deserialization data pipelines mapping custom class objects into native JSON streams.
+- Configured defensive runtime error-catching boundaries to gracefully intercept data-stream disruptions.
+
+## Features Built Day 3
+- Implemented `Save_To_JSON()` using Python's native `json.dump()` engine to parse in-memory object arrays into standard readable flat files.
+- Built explicit attribute structural checking loops using `hasattr()` to isolate `GraduateStudent` specific fields before writing profiles to disk.
+- Developed `Load_From_JSON()` wrapped inside structural `try/except` monitoring scopes to capture `FileNotFoundError` events smoothly during clean installations.
+- Engineered a polymorphic type reconstruction module using key-membership testing (`if "thesis_topic" in data`) to dynamically map raw dictionaries back into standard or graduate object instances on startup.
+- Fastened life-cycle operational hooks inside the terminal system, configuring boot-up database updates and immediate disk saving during application exit sequences.
 
 ## How to Run the Script
 1. Ensure Python or Anaconda is installed.
