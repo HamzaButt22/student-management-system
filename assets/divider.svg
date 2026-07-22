@@ -3,11 +3,16 @@
     <linearGradient id="dLine" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
       <stop offset="15%" stop-color="#d98e3f" stop-opacity="0.55"/>
-      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.25"/>
+      <stop class="midStop" offset="50%"/>
       <stop offset="85%" stop-color="#3f6ed9" stop-opacity="0.45"/>
       <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
     </linearGradient>
+    <style>
+      .midStop { stop-color: #ffffff; stop-opacity: 0.25; }
+      @media (prefers-color-scheme: light) {
+        .midStop { stop-color: #000000; stop-opacity: 0.18; }
+      }
+    </style>
   </defs>
-  <rect width="1000" height="28" fill="#0a0a0a"/>
   <rect x="0" y="13" width="1000" height="1.4" fill="url(#dLine)"/>
 </svg>

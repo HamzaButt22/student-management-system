@@ -1,39 +1,55 @@
 <svg width="620" height="56" viewBox="0 0 620 56" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="chipFill" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.10"/>
-      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.03"/>
+      <stop class="fillTop" offset="0%"/>
+      <stop class="fillBottom" offset="100%"/>
     </linearGradient>
     <linearGradient id="chipStroke" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop class="strokeStart" offset="0%"/>
+      <stop class="strokeEnd" offset="100%"/>
     </linearGradient>
-  </defs>
 
-  <rect width="620" height="56" fill="#0a0a0a"/>
+    <style>
+      /* dark mode (default) — light glass on a dark page */
+      .fillTop   { stop-color: #ffffff; stop-opacity: 0.10; }
+      .fillBottom{ stop-color: #ffffff; stop-opacity: 0.03; }
+      .strokeStart{ stop-color: #ffffff; stop-opacity: 0.40; }
+      .strokeEnd  { stop-color: #ffffff; stop-opacity: 0.08; }
+      .chipText  { fill: #e8e2d8; }
+
+      /* light mode — dark glass on a light page */
+      @media (prefers-color-scheme: light) {
+        .fillTop   { stop-color: #000000; stop-opacity: 0.055; }
+        .fillBottom{ stop-color: #000000; stop-opacity: 0.02; }
+        .strokeStart{ stop-color: #000000; stop-opacity: 0.28; }
+        .strokeEnd  { stop-color: #000000; stop-opacity: 0.08; }
+        .chipText  { fill: #2b2b2b; }
+      }
+    </style>
+  </defs>
 
   <!-- chip: Python -->
   <rect x="8" y="10" width="100" height="36" rx="18" fill="url(#chipFill)" stroke="url(#chipStroke)" stroke-width="1"/>
   <circle cx="30" cy="28" r="4" fill="#d98e3f"/>
-  <text x="44" y="32" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#e8e2d8">Python</text>
+  <text class="chipText" x="44" y="32" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14">Python</text>
 
   <!-- chip: OOP -->
   <rect x="120" y="10" width="88" height="36" rx="18" fill="url(#chipFill)" stroke="url(#chipStroke)" stroke-width="1"/>
   <circle cx="142" cy="28" r="4" fill="#3f8ed9"/>
-  <text x="156" y="32" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#e8e2d8">OOP</text>
+  <text class="chipText" x="156" y="32" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14">OOP</text>
 
   <!-- chip: JSON -->
   <rect x="220" y="10" width="96" height="36" rx="18" fill="url(#chipFill)" stroke="url(#chipStroke)" stroke-width="1"/>
   <circle cx="242" cy="28" r="4" fill="#8ed93f"/>
-  <text x="256" y="32" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#e8e2d8">JSON</text>
+  <text class="chipText" x="256" y="32" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14">JSON</text>
 
   <!-- chip: CLI -->
   <rect x="328" y="10" width="82" height="36" rx="18" fill="url(#chipFill)" stroke="url(#chipStroke)" stroke-width="1"/>
   <circle cx="350" cy="28" r="4" fill="#d93fb0"/>
-  <text x="364" y="32" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#e8e2d8">CLI</text>
+  <text class="chipText" x="364" y="32" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14">CLI</text>
 
   <!-- chip: no dependencies -->
   <rect x="422" y="10" width="190" height="36" rx="18" fill="url(#chipFill)" stroke="url(#chipStroke)" stroke-width="1"/>
   <circle cx="444" cy="28" r="4" fill="#c9c0b3"/>
-  <text x="458" y="32" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#e8e2d8">zero dependencies</text>
+  <text class="chipText" x="458" y="32" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14">zero dependencies</text>
 </svg>
