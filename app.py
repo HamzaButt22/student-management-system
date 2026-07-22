@@ -2,19 +2,45 @@ import numpy as np
 import json
 
 class Student:
+    """
+    Base entity class representing a standard Undergraduate Student record.
+    Manages state variables and provides default presentation formatting templates.
+    """
     student_database = []
 
     def __init__(self, name, student_id, gpa):
+        """
+        Initializes an explicit instance object profile partition in system memory.
+        
+        Parameters:
+            name (str): The fully validated text array matching the student's name.
+            student_id (int): The unique 5-digit numerical identity identifier code.
+            gpa (float): The validated floating-point academic scale evaluation metric.
+        """
         self.name = name
         self.student_id = student_id
         self.gpa = gpa
 
     def display(self):
+        """
+        Renders localized student attribute labels and values directly to the console stream.
+        
+        Returns:
+            None
+        """
         print("Name:", self.name)
         print("ID:", self.student_id)
         print("GPA:", self.gpa)
 
-    def Display_All_Records(self):
+    @staticmethod
+    def Display_All_Records():
+        """
+        Scans the shared class static list variable database array. Loops over entries 
+        and dynamically triggers polymorphically resolved instance string print outputs.
+        
+        Returns:
+            None
+        """
         if not Student.student_database:
             print("\nNo student records found in the database.")
             return
@@ -26,8 +52,16 @@ class Student:
                 student.display()
                 print("-------------------------")
                     
-
     def Update_gpa(self, new_gpa):
+        """
+        Alters the target object instance's internal GPA value variable parameter in real-time.
+        
+        Parameters:
+            new_gpa (str): The un-casted text input collected from the terminal console.
+            
+        Returns:
+            None
+        """
         if validate_GPA(new_gpa) == True:
             self.gpa = float(new_gpa)
             print(f"✔️ GPA for {self.name} updated successfully to {self.gpa}!")
@@ -36,16 +70,49 @@ class Student:
 
 
 class GraduateStudent(Student):
+    """
+    Specialized child subclass expanding from the structural Student blueprint template.
+    Inherits primary parameters while encapsulating advanced academic metrics.
+    """
     def __init__(self, name, student_id, gpa, thesis_topic):
+        """
+        Forwards positional values up to the parent engine before anchoring unique keys.
+        
+        Parameters:
+            name (str): Student classification text value.
+            student_id (int): Unique identity identifier value.
+            gpa (float): Numerical performance evaluation metric.
+            thesis_topic (str): Advanced postgraduate research description field text.
+        """
         super().__init__(name, student_id, gpa)
         self.thesis_topic = thesis_topic
 
     def display(self):
+        """
+        Overrides the baseline display handler method. Triggers the parent template lines
+        first before printing the localized thesis parameter text rows.
+        
+        Returns:
+            None
+        """
         super().display()
         print("Thesis Topic:", self.thesis_topic)
 
 
 def Store_Records(name, student_id, gpa, thesis_topic=None):
+    """
+    Acts as a dynamic manufacturing factory engine. Inspects entry parameter profiles
+    to determine the correct instantiation model to create and add to the database array.
+    
+    Parameters:
+        name (str): Validated student name character stream.
+        student_id (int): Validated unique integer identification key.
+        gpa (float): Validated numeric floating performance rating metric.
+        thesis_topic (str, optional): Research text description string. Defaults to None.
+        
+    Returns:
+        None
+    """
     if thesis_topic:
         new_student = GraduateStudent(name, student_id, gpa, thesis_topic)
     else:
@@ -54,6 +121,15 @@ def Store_Records(name, student_id, gpa, thesis_topic=None):
     print(f"✔️ Record for {name} saved successfully!")
 
 def validate_Name(name):
+    """
+    Asserts compliance filters protecting student character identity attributes.
+    
+    Parameters:
+        name (str): Raw string variable pulled from terminal input.
+        
+    Returns:
+        bool: True if passes string constraint boundaries, False if rejects values.
+    """
     if name == "":
         print("Error: Name is required.")
         return False
@@ -66,6 +142,15 @@ def validate_Name(name):
     return True
 
 def validate_Student_ID(student_id):
+    """
+    Enforces format rules across structural identity number properties.
+    
+    Parameters:
+        student_id (str): Raw string array input from terminal input.
+        
+    Returns:
+        bool: True if string matches exact structural limits, False if rejects formats.
+    """
     if student_id == "":
         print("Error: Student ID is required.")
         return False
@@ -78,6 +163,15 @@ def validate_Student_ID(student_id):
     return True
     
 def validate_GPA(gpa):
+    """
+    Runs diagnostic scanning checks across numerical float parameter formatting masks.
+    
+    Parameters:
+        gpa (str): Un-casted console input character value stream.
+        
+    Returns:
+        bool: True if data can safely pass parsing casting thresholds, False otherwise.
+    """
     if gpa == "":
         print("Error: GPA is required.")
         return False
@@ -104,6 +198,16 @@ def validate_GPA(gpa):
     return True
 
 def Input(is_grad):
+    """
+    Nests data collection steps inside runtime workflows. Routes values through 
+    validation gates before calling storage engines.
+    
+    Parameters:
+        is_grad (str): Tracking classification flag string ('y' or 'n').
+        
+    Returns:
+        None
+    """
     name = input("Enter student name: ")
     if validate_Name(name) == True:
         student_id = input("Enter student ID: ")
@@ -132,6 +236,12 @@ def Input(is_grad):
                     return
 
 def Search_Student_Record():
+    """
+    Queries unique integer identification codes across live objects using dynamic lookup sweeps.
+    
+    Returns:
+        None
+    """
     if not Student.student_database:
         print("\nThe database is completely empty. Add students first.")
         return
@@ -150,6 +260,12 @@ def Search_Student_Record():
             print("No record found for Student ID:", search_id)
 
 def Update_Student_Record():
+    """
+    Locates target data items by ID parameter mapping and executes state updates.
+    
+    Returns:
+        None
+    """
     if not Student.student_database:
         print("\nThe database is empty. No records to update.")
         return
@@ -167,20 +283,21 @@ def Update_Student_Record():
             print("No record found for Student ID:", update_id)
 
 def Save_To_JSON():
+    """
+    Converts live, high-level object states back into primitive dictionary matrices,then uses serialization loops to write data to local text records.Returns:None
+    """
     json_data = []
     for student in Student.student_database:
-        record = {
-            "name": student.name,
-            "student_id": student.student_id,
-            "gpa": student.gpa
-            }
+        record = {"name": student.name,"student_id": student.student_id,"gpa": student.gpa}
         if hasattr(student, 'thesis_topic'):
-            record["thesis_topic"] = student.thesis_topic
-        json_data.append(record)
-    with open("students.json", "w") as file:
-        json.dump(json_data, file, indent=4)
+            record["thesis_topic"] = student.thesis_topicjson_data.append(record)
+            with open("students.json", "w") as file:
+                json.dump(json_data, file, indent=4)
 
 def Load_From_JSON():
+    """
+    Loads saved data values from disk on startup. Evaluates parameters to safelyre-instantiate appropriate class models into runtime system memory.Returns:None
+    """
     try:
         with open("students.json", "r") as file:
             loaded_data = json.load(file)
@@ -189,11 +306,20 @@ def Load_From_JSON():
                     new_student = GraduateStudent(data["name"], data["student_id"], data["gpa"], data["thesis_topic"])
                 else:
                     new_student = Student(data["name"], data["student_id"], data["gpa"])
-                Student.student_database.append(new_student)
+                    Student.student_database.append(new_student)
     except FileNotFoundError:
         pass
 
 def Calculate_Class_Statistics():
+    """
+    Extracts numerical performance values to process descriptive statistics manually.
+    Runs array verification maps next to NumPy library parameters for verification.
+    
+    Calculates: Mean, Median, Mode, Minimum, Maximum, and Standard Deviation.
+    
+    Returns:
+        None
+    """
     if Student.student_database == []:
         print("\nThe database is empty. No records to calculate statistics.")
         return
@@ -265,8 +391,14 @@ def Calculate_Class_Statistics():
         print(f"Standard Deviation |    {manual_std_dev:.2f}     |    {numpy_std_dev:.2f}")
         print("=============================================")
 
-
 def Menu():  
+    """
+    Hosts the persistent infinite execution loop thread context interface layer.
+    Directs terminal selection interactions to their mapped system routes.
+    
+    Returns:
+        None
+    """
     while True:
         print("\nWelcome to the Student Record System!")
         print("1. Add Student Record")
@@ -281,7 +413,7 @@ def Menu():
             is_grad = input("Is this a Graduate Student? (y/n): ").strip().lower()
             Input(is_grad)
         elif choice == "2":
-            Student.Display_All_Records(Student)
+            Student.Display_All_Records()
         elif choice == "3":
             Search_Student_Record()
         elif choice == "4":
@@ -295,6 +427,6 @@ def Menu():
         else:
             print("Invalid choice. Please enter a number between 1 and 6.")
             continue
-
+        
 Load_From_JSON()
 Menu()
