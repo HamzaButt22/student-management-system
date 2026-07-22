@@ -3,13 +3,13 @@
 A Python-based command-line tool designed to handle and organize student records efficiently.
 
 ## 📅 Project Version History
-- **[Week 1]**
+- **Week 1**
    - [Day 1 Code Version](https://github.com/HamzaButt22/student-management-system/blob/76c0604d6e90ad75fb57c5a54248022312f789e5/app.py) — Initial single student data model script.
    - [Day 2 Code Version](https://github.com/HamzaButt22/student-management-system/blob/56d74e21dfc9ba98a9571325261e108fffbc38f6/app.py) — Extended system handling multiple student records.
    - [Day 3 Code Version](https://github.com/HamzaButt22/student-management-system/blob/68a9b1843cb6aeeb1a76ff5c9bad365660cd42ac/app.py) — Added input validation using string methods and conditional checks.
    - [Day 4 Code Version](https://github.com/HamzaButt22/student-management-system/blob/a124fbc464e72a59a49117d82b41201a511b9eb2/app.py) — Implemented a loop-driven interactive terminal menu with search functionality and data-integrity guards.
    - [Day 5 Code Version](https://github.com/HamzaButt22/student-management-system/blob/48a0ac8c46829f96a6b157c86a2c53be889cf75a/app.py) — Refactored application code into modular architectures and integrated standard exception handling layers.
-- **[Week 2]**
+- **Week 2**
    - [Day 1 Code Version](https://github.com/HamzaButt22/student-management-system/blob/91cea2c4e50e5b72d527846fa2999cc80364e554/app.py) — Migrated system infrastructure to Object-Oriented Programming (OOP) using custom Student entity blueprints.
    - [Day 2 Code Version](https://github.com/HamzaButt22/student-management-system/blob/132c0cd20482ce304093d2856d41c5ce0ec2038b/app.py) — Implemented class inheritance and runtime polymorphism via specialized student child structures.
    - [Day 3 Code Version](https://github.com/HamzaButt22/student-management-system/blob/4536bf0fe4e6c0f7332c5bd53c2115db28340c8e/app.py) — Integrated JSON serialization infrastructure to ensure database state persistence across application lifecycles.
@@ -119,7 +119,7 @@ A Python-based command-line tool designed to handle and organize student records
 - Programmed a step-by-step Standard Deviation calculator using variance squared deviations and fractional exponent root operations (`** 0.5`).
 - Fastened side-by-side terminal verification reports printing manual output matrices next to built-in NumPy library functions (`np.mean`, `np.median`, `np.unique`, `np.std`).
 
-### 🔹 Day 5 Milestone
+### Day 5 Milestone
 - Polished architectural engine syntax and standardized code organization.
 - Added comprehensive professional documentation to optimize the codebase for enterprise use.
 - Isolated storage states from active tracking paths by formatting repository file boundaries.
